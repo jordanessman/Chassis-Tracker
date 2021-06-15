@@ -1,0 +1,75 @@
+
+h1 {
+    color: white;
+    background-color: darkgreen;
+    height: 75px;
+    text-size-adjust: 1.4;
+    text-align: center;
+    
+        }
+img#pic1{
+    position :absolute;
+    top: 10px;
+    left: 15px;
+}
+h2 {
+     color: darkgreen;
+     text-align: left;
+    }
+    h2 :nth-child(2){
+        margin-left: 100px;
+    }
+h3 {
+     color: darkgreen;
+        }
+
+input{
+    margin-bottom: 2px;
+}
+#first{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+#first .table{
+    width: 258px;
+    text-align: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+label{
+    float: left;
+}
+#flyer {
+    text-align: center;
+    background-color: darkgreen;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.flyer2{
+    height: 55px;
+    width: 400px;
+    text-align: center;
+}
+#points14{
+    background-color: darkgrey;
+}
+#points24{
+    background-color: yellow;
+}
+#points25{
+    background-color: red;
+    color: white;
+}
+.cont {
+    display: flex;
+    flex-direction: row;
+    }
+#div1 {
+    float: left;
+}

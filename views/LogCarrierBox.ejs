@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/table.css" type="text/css">
+    <link rel="stylesheet" href="Styles/bootstrapiso.css" type="text/css">
+    <title>Document</title>
+</head>
+<body style="min-width: 1500px;">
+    <div class="bootstrap-iso">
+        
+        <nav class="navbar navbar-default navbar-inverse" role="navigation">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="background: url(Pics/nextier_logo_white.svg)">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button >
+              <a class="navbar-brand" href="/Home">NexTier NexHub Logistics</a>
+            </div>
+        
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li ><a href="/ActiveBox">Active Boxes</a></li>
+                <li class="active"><a href="LogBox">Box Return Log</a></li>
+                <li><a href="/Box">Box Collection Form</a></li>
+                <li><a href="/ReturnBox">Box Return Form</a></li>
+                
+
+                                    </div>
+                             </div>
+                        
+        </nav>
+        
+    </div>
+
+   
+   
+            
+    <div class="table">
+      <div class="table-header">
+          <div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#">Box ID</a></div>
+          <div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#">Box ID</a></div>
+          <div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#">Box Type</a></div>
+          <div class="header__item"><a id="losses" class="filter__link filter__link--number" href="#">Carrier</a></div>
+          <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Pickup Driver</a></div>
+          <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Pickup Truck Number</a></div>
+          <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Pickup Date</a></div>
+          <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Pickup Time</a></div>
+          <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Return Date</a></div>
+          <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Return Time</a></div>
+      </div>
+
+      <% let C = hold.carrier; let date1 = hold.qdate; let V = 0; if (date1 ==="") { V = 1}%>
+      <% date1 = new Date(date1);      %>
+      <% date= `${date1.getMonth()}${parseInt(date1.getDate())}${date1.getYear()}`; console.log(date);%>
+        <% for(i=chass.length -1; i>= 0; i--) {   %>
+                <% if (chass[i].status === false) {     %>
+                    <% let dateString = chass[i].completionSubTime; let temp1 = new Date(dateString) %>
+                    <% temp = `${temp1.getMonth()}${parseInt(temp1.getDate())}${temp1.getYear()}`;%>
+                    <% console.log(temp); console.log(date); %>
+                    <% if (temp == date || V === 1){  %>
+                    <% if (C === chass[i].carrier || C === ""){  %>
+                  
+                
+            <div class="table-content">	
+                <div class="table-row">		
+                    <div class="table-data"><%=chass[i].box%></div>
+                    <div class="table-data"><%=chass[i].box2%></div>
+                    <div class="table-data"><%=chass[i].boxType%></div>                  
+                    <div class="table-data"><%=chass[i].carrier%></div>
+                    <div class="table-data"><%=chass[i].driver%></div>
+                    <div class="table-data"><%=chass[i].truckNum%></div>
+                    <div class="table-data"><%=chass[i].pickupDate%></div>
+                    <div class="table-data"><%=chass[i].pickupTime%></div>
+                    <div class="table-data"><%=chass[i].returnDate%></div>
+                    <div class="table-data"><%=chass[i].returnTime%></div>
+                    
+                </div>
+            </div>
+                <% }}}} %> 
+    
+</div>
+</table>
+<form action="/LogBox", method = 'post'>
+  
+    <button style="float: right; height: 25px;">Refresh</button>
+    <select name="carrier" id="carrier" style="float: right; height: 25px;">
+      <option value="">--Please choose an option--</option>
+      <% for (let i = 0; i < carrier.length; i++) {  console.log(carrier[0])  %>
+        <option value="<%=carrier[i].carrier%>"><%=carrier[i].carrier%></option>
+        <% } %>
+</select>
+  <input type="date" name="qdate" style="float: right; height: 25px;">
+  </form>
+
+</body>
+</html>

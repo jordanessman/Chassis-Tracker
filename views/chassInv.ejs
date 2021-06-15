@@ -1,0 +1,154 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/table.css" type="text/css">
+    <link rel="stylesheet" href="Styles/bootstrapiso.css" type="text/css">
+    <title>Chassis Inventory</title>
+</head>
+<body style="min-width: 1500px;">
+    <div class="bootstrap-iso">
+        
+        <nav class="navbar navbar-default navbar-inverse" role="navigation">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="background: url(Pics/nextier_logo_white.svg)">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button >
+              <a class="navbar-brand" href="/Home">NexTier NexHub Logistics</a>
+            </div>
+        
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/chassInv">Inventory</a></li>
+                <li ><a href="Active">Carrier Leases</a></li>
+                <li><a href="/Chassis">Carrier Collection Form</a></li>
+                <li><a href="/Return">Carrier Return Form</a></li>
+                
+
+                                    </div>
+                             </div>
+                        
+        </nav>
+    </div>
+
+    <button><a href="/addChassis">Add Chassis</a></button>
+    <button><a href="/ReturnInvChass">Remove Chassis</a></button>
+    <button><a href="/Tag">Tag In/Out</a></button>
+    <button><a href="/Repairs">Repairs</a></button>
+    <button style="float: right;"><a href="/chassInvReturn">Return History</a></button>
+   
+   
+            
+        <div class="table">
+            <div class="table-header">
+                <div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#">Chassis or VIN Number</a></div>
+                <div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">Chassis Type</a></div>
+                <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Pickup Date</a></div>
+                <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Lease Status</a></div>
+            </div>
+
+            <% console.log(hold); if(hold.filter === "0"){  num = 0;%>
+              <% for(i = chass.length -1; i>= 0; i--) { %> 
+                <% if (chass[i].status === true) {     %>
+                  <% if (chass[i].leaseStatus === true) {     %>
+                    <% if (chass[i].chassType === hold.filter1 || hold.filter1 === ""){  %>
+
+            <div class="table-content">	
+                <div class="table-row">		
+                    <div class="table-data"><%=chass[i].chass%> <%=chass[i].VINNumber%></div>                  
+                    <div class="table-data"><%=chass[i].chassType%></div>
+                    <div class="table-data"><%=chass[i].pickupDate%></div>
+                    <div class="table-data">
+                      <%  if (chass[i].tagged === true) { %>
+                        Tagged Out
+                        <% } else if (chass[i].leaseStatus === true) { %>
+                           Leased
+                           <% } else{ %>
+                            No Current Lease
+                        <%   } }%></div>   
+                </div>
+            </div>
+                <% }}}} %> 
+
+
+
+
+                <% if(hold.filter === "1"){ num = 1; %>
+                  <% for(i = chass.length -1; i>= 0; i--) { %> 
+                    <% if (chass[i].status === true) {     %>
+                      <% if (chass[i].leaseStatus === false) {     %>
+                        <% if (chass[i].chassType === hold.filter1 || hold.filter1 === ""){  %>
+                <div class="table-content">	
+                    <div class="table-row">		
+                        <div class="table-data"><%=chass[i].chass%> <%=chass[i].VINNumber%></div>                  
+                        <div class="table-data"><%=chass[i].chassType%></div>
+                        <div class="table-data"><%=chass[i].pickupDate%></div>
+                        <div class="table-data">
+                          <%  if (chass[i].tagged === true) { %>
+                            Tagged Out
+                            <% } else if (chass[i].leaseStatus === true) { %>
+                               Leased
+                               <% } else{ %>
+                                No Current Lease
+                            <%   } }%></div>   
+                    </div>
+                </div>
+                    <% }}}} %> 
+
+
+
+
+
+           <% if (num === 3) {%>
+            
+            <% for(i = chass.length -1; i>= 0; i--) { %> 
+                <% if (chass[i].status === true) {     %>
+                  <% if (chass[i].chassType === hold.filter1 || hold.filter1 === "" || hold.filter === "" || !hold.filter || !hold.filter1){  %>
+                
+            <div class="table-content">	
+                <div class="table-row">		
+                    <div class="table-data"><%=chass[i].chass%> <%=chass[i].VINNumber%></div>                  
+                    <div class="table-data"><%=chass[i].chassType%></div>
+                    <div class="table-data"><%=chass[i].pickupDate%></div>
+                    <div class="table-data">
+                      <%  if (chass[i].tagged === true) { %>
+                        Tagged Out
+                        <% } else if (chass[i].leaseStatus === true) { %>
+                           Leased
+                           <% } else{ %>
+                            No Current Lease
+                        <%   } }%></div>   
+                </div>
+            </div>
+                <% }}} %>
+    
+</div>
+</table>
+<form action="/ChassInv", method = 'post'>
+  
+    <button style="float: right;">Refresh</button>
+    <select name="filter" id="filter" style="float: right;">
+      <option value="3">--Please choose an option--</option>
+      <option value="0">Leased</option>
+      <option value="1">No Current Lease--</option>
+    </select>
+    
+    <select name="filter1" id="filter1" style="float: right;">
+      <option value="">--Please choose an option--</option>
+      <option value="Arrows Up">Arrows Up</option>
+      <option value="Hopper Bottom">Hopper Bottom</option>
+      <option value="American">American</option>
+      <option value="Pnematic">Pnematic</option>
+      <option value="SCBH">SCBH</option>
+    </select>
+  </form>
+
+</body>
+</html>

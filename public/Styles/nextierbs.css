@@ -1,0 +1,82 @@
+h1 {
+    text-align: center;
+    color: white;
+    background-color: darkgreen;
+    height: 60px;
+}
+.tl {
+    float: left;
+    width: 80px;
+}
+#flyer {
+    text-align: center;
+    background-color: darkgreen;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+}
+.flyer2{
+    height: 55px;
+    width: 400px;
+    text-align: center;
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+}
+#points14{
+    background-color: darkgrey;
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+}
+#points24{
+    background-color: yellow;
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+}
+#points25{
+    background-color: red;
+    color: white;
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+}
+#flyercol1{
+    text-align: center;
+    background-color: gray;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+h3{
+    background-color: darkgreen;
+    color: white;
+    padding: 5px;
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+}
+.row.no-gutter {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .row.no-gutter [class*='col-']:not(:first-child),
+  .row.no-gutter [class*='col-']:not(:last-child) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  #subbut{
+      float: left;
+      margin-left: 20px;
+      margin-top: 40px;
+      margin-bottom: 50px;
+      
+  }

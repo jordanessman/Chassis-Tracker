@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html LANG = ENG>
+
+<HEAD>
+    <title>Nextier Journey Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="Styles/nextierbs.css">
+</HEAD>
+
+<body >
+    <div  class="container px-0" style="min-width: 900px; border-color: black; border-style: solid; border-width: 1px;"  >
+        <div>
+        <h1 class="display mx-0" style="border-color: black; border-style: solid; border-width: 1px; "><img style="float: left; margin-left: 2px;" src="Pics/nextier_logo_white.svg" height="70px" width="150px" id="pic1">
+        Journey Management</h1>
+    <br>  </div>
+
+    
+        <div class="row">
+            <form action="/JM", method = 'post'>
+                
+                <div class="container" style="margin: 0; padding-left: 5%;" >
+                <div class="form-group">
+                    <div class="d-flex">
+                    <div class="col-4" style="min-width: 300px;" id="div1">
+                    <h2>Employee</h2>
+                    <label for = "fname" class="tl">Full Name</label>
+                    <input type="text" name="fname" class="in" ><br>
+                    <label for = "eNum" class="tl">Employee#</label>
+                    <input type="number" name="eNum" class="in"><br>
+                    <label for = "lname" >Phone #  </label>
+                    <input type="tel" name="phoneNum" class="in" style="margin-left: 17px; margin-bottom: 5px;"><br>
+                </div> 
+                           
+
+            <div class="col-4" style="min-width: 300px;">
+                <h2>Vehicle</h2>
+                <label for = "truck">Truck #</label>
+                <input type="text" name="truck" style="margin-left: 4px;"><br>
+                <label for = "trailer">Trailer #</label>
+                <input type="text" name="Trailer"><br>
+                <label for = "Mile">Mileage</label>
+                <input type="text" name="Mile"><br>
+            </div>
+
+            <div class="col-4" style="min-width: 300px; margin-left: 20px;"> 
+                <h2>Trip Duration</h2>
+                <label for = "TS">Start Time</label>
+                <input type="time" name="TS"><br>
+                <label for = "TE">Est. Arrival</label>
+                <input type="time" name="TE"><br>
+                <label for = "TD">Drive Time</label>
+                <input type="number" name="TD" style="max-width: 110px;">
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+        
+        <Div class="row no-gutter" style="min-width: 900px;">
+            <div class="col-3" id="flyercol1">
+                <h5 style="background-color: darkgreen; height: 30px; margin: 0px;">Is this trip neccessary?</h5>
+                <input type="text" style="height: 90px; background-color: whitesmoke; border: black; border-radius: 5px;">
+            </div>
+            <div class="col-9" id="flyer" style="height: 120px;">
+                <span ><u>Heavy Duty Vehicles</u> (Above 10,000 lbs) 
+                - 5mph below posted speed limits at all times up to <b>Maximum Vehicle Speed</b> <b style="color: red;">70mph</b><br>
+                <u>Light Duty Vehicles Daytime</u> - Posted Speed Limits<br>
+                <u>Light Duty Vehicles Nightime</u> - 5mph Below posted speed limits</span>
+                <span style="color: yellow;"> (Nightime is considered 1/2 hour before sunset and 1/2 hour after sunrise)</span>
+        </div>
+        </div>
+        
+        <div class="row no-gutter" style="min-width: 900px;"> 
+            <div class="col-12" style="background-color: darkgreen;">
+                <span style="color: white;" >Complete Risk Chart Prior to <b>ANY</b> Vehicle Movement</span>
+            </div>
+        </div>
+
+       
+
+        <div class="row no-gutter" style="min-width: 900px;">
+                <div id = "points14" class="col-4"><b>14 Points or Less</b> <br> Consider Ways to Mitigate Risks</div>
+                <div id = "points24" class="col-4"><b>15-24 Points</b><br> Dispatch Approval Required</div>
+                <div id = "points25" class="col-4"><b>25+ Points</b><br> Call With Supervisor Discussing Risk Required</div> 
+        </div>
+        
+    </div>
+
+            <div class="row-fluid" style="padding: 5px;" style="min-width: 900px;">
+                <div class="span12 text-center" >
+        <span class="badge bg-warning" id="PointsXX" style="font-size: 2em;"> XX Points </span>
+        </div>
+        </div>
+        
+        
+
+       <div style="min-width: 900px;">
+           <div class="row no-gutter">
+
+            <Div class="col-4">
+                <h3>Number of Vehicles and Passengers</h3>
+                <label for="pass1">2 Vehicles 1+ Passenger ea</label>
+                <input type="radio" name="Pass" id="pass1" value ="1" class="addPoints" required><br>
+                <label for="Veh2">1+ Vehicles; not all have Passengers</label>
+                <input type="radio" name="Pass" id="Veh2" value="2" class="addPoints" required><br>
+                <label for="nopass">No Passengers</label>
+                <input type="radio" name="Pass" id="nopass" value="3" class="addPoints" required>
+            </Div>
+
+        <Div class="col-4">
+            <h3>Road Conditions</h3>
+            <label for="paved">Paved</label>
+            <input type="radio" name="roads" id="paved" value ="1" class="addPoints" required><br>
+            <label for="Mixed">Mixed</label>
+            <input type="radio" name="roads" id="Mixed" value="2" class="addPoints" required><br>
+            <label for="Unpaved">Unpaved</label>
+            <input type="radio" name="roads" id="Unpaved" value="4" class="addPoints" required><br>
+            <label for="Mountains">Mountains</label>
+            <input type="radio" name="roads" id="Mountains" value="8" class="addPoints" required>
+        </Div>
+
+        <div class="col-4">
+            <h3>Day / Night</h3>
+            <label for="Day">1/2 Hour After Sunrise, 1/2 Hour Before Sunset</label>
+            <input type="radio" name="DayNight" id="Day" value ="0" class="addPoints"><br>
+            <label for="Night">1/2 Before Sunrise, 1/2 hour after Sunset</label>
+            <input type="radio" name="DayNight" id="Night" value="5" class="addPoints">
+        </div>
+        
+    </div>
+
+    <div class="row no-gutter">
+        <div class="col-4">
+            <h3>Weather</h3>
+            <label for="Dry">Dry</label>
+            <input type="radio" name="Weather" id="Dry" value ="0" class="addPoints"><br>
+            <label for="Wind">Wind Gusts 20+ MPH</label>
+            <input type="radio" name="Weather" id="Wind" value="2" class="addPoints"><br>
+            <label for="LTRain">Light Rain</label>
+            <input type="radio" name="Weather" id="LTRain" value="4" class="addPoints"><br>
+            <label for="HVRain">Heavy Rain</label>
+            <input type="radio" name="Weather" id="HVRain" value="6" class="addPoints"><br>
+            <label for="Fog">Fog or Dust</label>
+            <input type="radio" name="Weather" id="Fog" value="8" class="addPoints"><br>
+            <label for="Snow">Snow</label>
+            <input type="radio" name="Weather" id="Snow" value="10" class="addPoints"><br>
+            <label for="BSnow">Below Freezing in Snow</label>
+            <input type="radio" name="Weather" id="BSnow" value="12" class="addPoints"><br>
+        </div>
+        
+        <div class="col-4">
+            <h3>Communication</h3>
+            <label for="Coms">Mobile Signal Good</label>
+            <input type="radio" name="Comunication" id="Coms" value ="0" class="addPoints"><br>
+            <label for="ConvNComs">No Comms but in a Convoy</label>
+            <input type="radio" name="Comunication" id="ConvNComs" value="2" class="addPoints">
+            <label for="NComs">No Comms Single Vehicle</label>
+            <input type="radio" name="Comunication" id="NComs" value="4" class="addPoints">
+        </div>
+        <div class="col-4">
+            <h3>Driver Hours</h3>
+            <div class="form-check">
+            <label class="form-check-label" for="Sleep"> Driver Slept 8+ Hours</label>
+            <input class="form-check-input" type="checkbox" value="" id="Sleep">
+            </div>
+            <label for="DRL12">On Duty + Trip  &lt12hours</label>
+            <input type="radio" name="DRHours" id="DRL12" value ="1" class="addPoints"><br>
+            <label for="DRL14">On Duty + Trip  &lt14hours</label>
+            <input type="radio" name="DRHours" id="DRL14" value ="3" class="addPoints"><br>
+            <label for="DRL16">On Duty + Trip  &lt16hours</label>
+            <input type="radio" name="DRHours" id="DRL16" value ="6" class="addPoints"><br>
+        </div>
+
+        <div class="row no-gutter px-0" style="padding: 10px;">
+            <div class="col-4 px-0">
+                <h3>Driving Contractor</h3>
+                <label for="PCont">Permanent Contractor</label>
+                <input type="radio" name="Contr" id="PCont" value ="0" class="addPoints"><br>
+                <label for="VNI">Vehicle Not Inspected by NexTier</label>
+                <input type="radio" name="Contr" id="VNI" value ="10" class="addPoints"><br>
+                <label for="NoT">Driver W/o Aprroved Training</label>
+                <input type="radio" name="Contr" id="NoT" value ="25" class="addPoints"><br>
+            </div>
+            <div class="col-3 px-0">
+                <img style="float: left; max-width: 175px; margin-right: 20px; " src="Pics/noDrugs.png">
+            </div>
+            <div class="col-2 px-0">
+                <img style="float: right; max-width: 175px; margin-right: 20px" src="Pics/noCell.png">
+            </div>
+            <div class="col-2 px-0">
+                <img style="float: right; max-width: 175px; " src="Pics/seatBelt.png">
+            </div>
+
+        </div>
+      </div>
+
+        <Div class="row no-gutter px-0">
+            <div class="col-6 px-0" >
+                <h3> Vehicle</h3>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="DVIR" required>
+                    <label class="form-check-label" for="DVIR">Pretrip Vehicle Inpection w. DVIR</label>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="Lights" required>
+                    <label class="form-check-label" for="Lights">Confirmed Lights On (Required)</label>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="Distractions" required>
+                    <label class="form-check-label" for="Distactions">Removed All Distractions?)</label>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="Cruise">
+                    <label class="form-check-label" for="Cruise">No Cruise Control Reviewed?</label>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="ABrakes" required>
+                    <label class="form-check-label" for="ABreaks">Air Breaks Test Conducted?</label>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="PBrake" required>
+                    <label class="form-check-label" for="PBreak">Emergency/Parking Break Tested?</label>
+                  </div>
+            
+                </div>
+            <div class="col-6 px-0">
+                <h3> Driver</h3>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="DEXP">
+                    <label class="form-check-label" for="DEXP">Driver Expierienced with Vehicle?</label>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="License" required>
+                    <label class="form-check-label" for="License">Driver Licensed for Vehicle Use?</label>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="Convoy">
+                    <label class="form-check-label" for="Convoy">Vehicle Assigned Place in Convoy?</label>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="SLimit" required>
+                    <label class="form-check-label" for="SLimit">Speed Limits Reviewed?</label>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="DistReq" required>
+                    <label class="form-check-label" for="DisReq">Understands Following Distance Requirment?</label>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="Mirror" required>
+                    <label class="form-check-label" for="Mirror">Mirrors and Seats Adjusted for Driver?</label>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="RemDis" required>
+                    <label class="form-check-label" for="RemDis">Remove All Distractions (Cell Phones)?</label>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="Hours" required>
+                    <label class="form-check-label" for="Hours">Has Hours to Drive?</label>
+                  </div>
+            </div>
+        </Div>
+
+        <Div class="row no-gutter px-0">
+
+            <div class="col-6">
+                <h3> Passengers/Cargo</h3>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="SeatBelts" required>
+                    <label class="form-check-label" for="SeatBelts">All Employees Using Seat Belts</label>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="PPE" required>
+                    <label class="form-check-label" for="PPE">All Employees have Required PPE?</label>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="Support">
+                    <label class="form-check-label" for="Support">Driver Support Passenger Assigned?</label>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="Cargo" required>
+                    <label class="form-check-label" for="Cargo">Cargo Checked and Secure?</label>
+                  </div>
+        </Div>
+
+            <div class="col-6 px-0">
+                <h3>Trip</h3>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="PStop" required>
+                    <label class="form-check-label" for="PStop">Planeed Stop Discussed?</label>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="HazDis" required>
+                    <label class="form-check-label" for="HazDis">Driving Hazards Assesed?</label>
+                  </div>
+                  
+            </div> 
+    </div>  
+
+    <Div class="row no-gutter px-0">
+      <div class="col-12" style="height: 75px;">
+    <div style="float: right;"><button style="align-items: right; max-width: 100px; min-width: 100px" id="subbut">Submit</button></div>
+    </div>
+    </div> 
+  </form>
+</body>
+<script src="button.js"></script>
+
+

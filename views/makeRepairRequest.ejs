@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chassis Collection</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <style>
+      html, body {
+      display: flex;
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+      }
+      form {
+      border: 5px solid #f1f1f1;
+      }
+      input[type=text], input[type=password] {
+      width: 100%;
+      padding: 16px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      }
+      button {
+      background-color: #0e5a0b;
+      color: white;
+      padding: 14px 0;
+      margin: 10px 0;
+      border: none;
+      cursor: grabbing;
+      width: 100%;
+      }
+      h1 {
+      text-align:center;
+      fone-size:18;
+      }
+      button:hover {
+      opacity: 0.8;
+      }
+      .formcontainer {
+      text-align: left;
+      margin: 24px 50px 12px;
+      }
+      .container {
+      padding: 16px 0;
+      text-align:left;
+      }
+      span.psw {
+      float: right;
+      padding-top: 0;
+      padding-right: 15px;
+      }
+      /* Change styles for span on extra small screens */
+      @media screen and (max-width: 300px) {
+      span.psw {
+      display: block;
+      float: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/createRepair" method="post">
+      <h1>Repair Request</h1>
+      <div class="formcontainer">
+      <hr/>
+      <div class="container">
+        <label for="chass"><strong>Chassis or VIN Number</strong></label>
+        <input type="text" placeholder="Enter chassis number. If none enter VIN." name="chass" required>
+        <label for="chassType"><strong>Chassis Type</strong></label><br>
+        <select name="chassType" id="chassType" style="width: 100%; height: 40px;">
+    <option value="">--Please choose an option--</option>
+    <option value="Arrows Up">Arrows Up</option>
+    <option value="PropX">PropX</option>
+    <option value="SBCH">SBCH</option>
+    <option value="American">American</option>
+    <option value="Pnematic">Pnematic</option>
+    <option value="Hopper Bottom">Hopper Bottom</option>
+</select> <br>
+<label for="repairItem"><strong>Repair Item</strong></label><br>
+        <select name="repairItem" id="repairItem" style="width: 100%;height: 40px;">
+          <option value="">--Please choose an option--</option>
+          <% for (let i = 0; i < repairItem.length; i++) {  console.log(repairItem[0])  %>
+            <option value="<%=repairItem[i].repairItem%>"><%=repairItem[i].repairItem%></option>
+            <% } %>
+</select> <br>
+        <label for="notes"><strong>Notes</strong></label> <br>
+        <textarea placeholder="Please enter a description or any notes of the problem or item that needs fixing." name="notes" style="height: 300px; width: 500px;"> </textarea>
+      </div>
+      <button type="submit">Create a Repair Reqest</button>
+    </form>
+  </body>
+</html>

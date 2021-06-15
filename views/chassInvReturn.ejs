@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/table.css" type="text/css">
+    <link rel="stylesheet" href="Styles/bootstrapiso.css" type="text/css">
+    <title>Chassis Inventory</title>
+</head>
+<body style="min-width: 1500px;">
+    <div class="bootstrap-iso">
+        
+        <nav class="navbar navbar-default navbar-inverse" role="navigation">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="background: url(Pics/nextier_logo_white.svg)">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button >
+              <a class="navbar-brand" href="/Home">NexTier NexHub Logistics</a>
+            </div>
+        
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/chassInv">Inventory</a></li>
+                <li ><a href="Active">Carrier Leases</a></li>
+                <li><a href="/Chassis">Carrier Collection Form</a></li>
+                <li><a href="/Return">Carrier Return Form</a></li>
+                
+
+                                    </div>
+                             </div>
+                        
+        </nav>
+    </div>
+
+
+   
+   
+            
+        <div class="table">
+            <div class="table-header">
+                <div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#">Chassis or VIN Number</a></div>
+                <div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">Chassis Type</a></div>
+                <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Pickup Date</a></div>
+                <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Dropoff Date</a></div>
+            </div>
+            
+            <% for(i = chass.length -1; i>= 0; i--) { %> 
+                <% if (chass[i].status === false) {     %>
+                
+            <div class="table-content">	
+                <div class="table-row">		
+                    <div class="table-data"><%=chass[i].chass%> <%=chass[i].VINNumber%></div>                  
+                    <div class="table-data"><%=chass[i].chassType%></div>
+                    <div class="table-data"><%=chass[i].pickupDate%></div>
+                    <div class="table-data"><%=chass[i].returnDate%></div>
+                    
+                        
+                             
+                    
+                </div>
+            </div>
+                <% }} %> 
+    
+</div>

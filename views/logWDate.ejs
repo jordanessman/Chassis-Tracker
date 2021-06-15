@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/table.css" type="text/css">
+    <link rel="stylesheet" href="Styles/bootstrapiso.css" type="text/css">
+    <title>Document</title>
+</head>
+<body style="min-width: 1500px;">
+    <div class="bootstrap-iso">
+        
+        <nav class="navbar navbar-default navbar-inverse" role="navigation">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="background: url(Pics/nextier_logo_white.svg)">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button >
+              <a class="navbar-brand" href="#">NexTier Journey Management</a>
+            </div>
+        
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li ><a href="/DATA">Active Movements</a></li>
+                <li class="active"><a href="#">Movement Logs</a></li>
+                <li><a href="/JM">JM</a></li>
+                <li><a href="/COMPLETE">Trip Completion</a></li>
+                
+
+                                    </div>
+                             </div>
+                        
+        </nav>
+    </div>
+
+   
+   
+            
+        <div class="table">
+            <div class="table-header">
+                <div class="header__item"><a id="name" class="filter__link" href="#">Full Name</a></div>
+                <div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#">Employee Number</a></div>
+                <div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">Phone Number</a></div>
+                <div class="header__item"><a id="losses" class="filter__link filter__link--number" href="#">Points</a></div>
+                <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Truck Number</a></div>
+                <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Trailer Number</a></div>
+                <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Mileage</a></div>
+                <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Journey Start</a></div>
+                <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Trip Duration</a></div>
+                <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Estimated Arival</a></div>
+                <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Completion Time</a></div>
+            </div>
+            <% let date1 = hold.qdate; date1 = new Date(date1);  %>
+            <% date= `${date1.getMonth()}${parseInt(date1.getDate())}${date1.getYear()}`; console.log(date);%>
+            <% for(i=0; i< trips.length; i++) { %> 
+                <% if (trips[i].status === false) {     %>
+                  <% let dateString = trips[i].submissionDate; let temp1 = new Date(dateString) %>
+                  <% temp = `${temp1.getMonth()}${parseInt(temp1.getDate())}${temp1.getYear()}`;%>
+                  <% console.log(temp); console.log(date); %>
+                  <% if (temp == date){  %>
+                
+            <div class="table-content">	
+                <div class="table-row">		
+                    <div class="table-data"><%=trips[i].name%></div>                   
+                    <div class="table-data"><%=trips[i].employeeNum%></div>
+                    <div class="table-data"><%=trips[i].phoneNum%></div>
+                    <div class="table-data"><%=trips[i].points%></div>
+                    <div class="table-data"><%=trips[i].truckNum%></div>
+                    <div class="table-data"><%=trips[i].trailerNum%></div>
+                    <div class="table-data"><%=trips[i].mileage%></div>
+                    <div class="table-data"><%=trips[i].journeyStart%></div>
+                    <div class="table-data"><%=trips[i].driveTime%></div>
+                    <div class="table-data"><%=trips[i].expectedArival%></div>
+                    <div class="table-data"><%=trips[i].completionTime%></div>
+                </div>
+            </div>
+                <% }}} %> 
+    
+</div>
+</table>
+<form action="/LOGS", method = 'post'>
+  
+  <button style="float: right;">Refresh</button>
+  <select name="carrier" id="carrier" style="width: 100%;height: 40px;">
+    <option value="">--Please choose an option--</option>
+      <% for (let i = 0; i < carrier.length; i++) {  console.log(carrier[0])  %>
+        <option value="<%=carrier[i].carrier%>"><%=carrier[i].carrier%></option>
+        <% } %>
+</select>
+</form>
+
+</body>
+</html>
